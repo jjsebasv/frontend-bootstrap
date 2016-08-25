@@ -11,18 +11,20 @@ const localConfig = {
 };
 
 gulp.task('watch:scss', () => {
-  gulp.watch(localConfig.scssWatchedFiles, ['sass']);
+  gulp.watch(localConfig.scssWatchedFiles, () => {
+    runSequence('sass', 'uncss');
+  });
 });
 
 gulp.task('watch:js', () => {
   gulp.watch(localConfig.jsWatchedFiles, () => {
-    runSequence('scripts', 'inject');
+    runSequence('scripts', 'uncss', 'inject');
   });
 });
 
 gulp.task('watch:jade', () => {
   gulp.watch(localConfig.jadeWatchedFiles, () => {
-    runSequence('jade', 'inject');
+    runSequence('jade', 'uncss', 'inject');
   });
 });
 
