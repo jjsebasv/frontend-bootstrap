@@ -2,7 +2,7 @@ import gulp from 'gulp';
 import uncss from 'gulp-uncss';
 
 const localConfig = {
-  src: ['./build/css/application.css', './build/**/*.js'],
+  src: ['./build/css/application.css'],
   dest: './build/css/out',
   html: ['./build/**/*.html']
 };
